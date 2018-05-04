@@ -1,28 +1,29 @@
+import java.util.ArrayList;
 
 public class Carro {
-	private String kmLitro, distancia, mediaTotal;
+	private ArrayList<Viagem> viagens;
 	
-	public String getKmLitro() {
-		return kmLitro;
+	Carro() {
+		this.viagens = new ArrayList<Viagem>();
 	}
-
-	public void setKmLitro(String kmLitro) {
-		this.kmLitro = kmLitro;
+	
+	public float getMediaKmLitro() {
+		float kmLitroTotal = 0;
+		for(Viagem viagem : viagens) {
+			kmLitroTotal += viagem.getKmLitro();
+		}
+		return kmLitroTotal / viagens.size();
 	}
-
-	public String getDistancia() {
-		return distancia;
+	
+	public float getMediaDistancia() {
+		float distanciaTotal = 0;
+		for(Viagem viagem : viagens) {
+			distanciaTotal += viagem.getDistancia();
+		}
+		return distanciaTotal / viagens.size();
 	}
-
-	public void setDistancia(String distancia) {
-		this.distancia = distancia;
+	
+	public void addViagem(Viagem viagem) {
+		this.viagens.add(viagem);
 	}
-
-	public String getMediaTotal() {
-		return mediaTotal;
-	}
-
-	public void setMediaTotal(String mediaTotal) {
-		this.mediaTotal = mediaTotal;
-	}	
 }
